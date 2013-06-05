@@ -1,0 +1,3 @@
+[submodule "app/classes/Core"]
+	path = app/classes/Core
+	url = https://github.com/smallhadroncollider/starch-core

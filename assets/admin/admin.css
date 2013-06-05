@@ -1,0 +1,43 @@
+#postexcerpt .inside p {
+    display: none;
+}
+
+/* Login Page */
+body.login {
+    background: #71999f;
+}
+
+body.login #nav a,
+body.login #backtoblog a {
+    color: #e7e4d4 !important;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+/* Login Image */
+body.login #login {
+    padding-top: 20px;
+}
+
+body.login h1 {
+    /* Image shouldn't be more than 312px wide */
+    background: url('../img/logo.png') no-repeat center center !important;
+    /* Set to appropriate height */
+    height: 180px;
+
+    /* Margins */
+    margin-left: 8px;
+}
+
+/* Removes confusing link to WordPress.com */
+body.login h1 a {
+    display:none;
+}
+
+#icl_div_config {
+    display: none;
+}
+
+.mceIframeContainer {
+    background: #fff;
+}
