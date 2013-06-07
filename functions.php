@@ -12,6 +12,8 @@ define('PATH', __DIR__ . '/');
 define('APP', __DIR__ . '/app/');
 // Framework core files directory
 define('CORE', APP . 'classes/core/');
+// Views directory
+define('VIEWS', APP . 'views/');
 
 
 /**
