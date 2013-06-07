@@ -32,7 +32,7 @@ The following steps assume you have already got WordPress installed and running.
 
 #### Git (Recommended)
 
-To install go to your `/wp-content/themes` directory and use `git clone https://github.com/smallhadroncollider/starch theme-name` (where `theme-name` is the directory name for your theme). Then go into your directory and run `git submodule init && git submodule update` - this will pull in the Core files (these are in a separate repository to make updating Starch easier).
+To install go to your `wp-content/themes` directory and use `git clone https://github.com/smallhadroncollider/starch theme-name` (where `theme-name` is the directory name for your theme). Then go into your directory and run `git submodule init && git submodule update` - this will pull in the Core files (these are in a separate repository to make updating Starch easier).
 
     git clone https://github.com/smallhadroncollider/starch theme-name
     cd theme-name
@@ -40,7 +40,7 @@ To install go to your `/wp-content/themes` directory and use `git clone https://
 
 #### Old School
 
-Download the latest version from [https://github.com/smallhadroncollider/starch/archive/master.zip](https://github.com/smallhadroncollider/starch/archive/master.zip) and extract into a directory in your `/wp-content/themes/` directory. You'll also need to download [https://github.com/smallhadroncollider/starch-core/archive/master.zip](https://github.com/smallhadroncollider/starch-core/archive/master.zip) and extract the contents into `app/classes/Core`.
+Download the latest version from [https://github.com/smallhadroncollider/starch/archive/master.zip](https://github.com/smallhadroncollider/starch/archive/master.zip) and extract into a directory in your `wp-content/themes/` directory. You'll also need to download [https://github.com/smallhadroncollider/starch-core/archive/master.zip](https://github.com/smallhadroncollider/starch-core/archive/master.zip) and extract the contents into `theme-name/app/classes/Core`.
 
 ### Customising the Theme
 
@@ -54,7 +54,9 @@ Login to Admin and go to the *Appearance -> Themes* and select the new theme. Th
 
 Go to the `app/config/general.php` file and edit the `post_types` array to add your new post types. For example, if you wanted to add a Event and News post types you would have:
 
-    'post_types' => array('Event', 'News')
+```php
+'post_types' => array('Event', 'News')
+```
 
 All post types require a matching `Starch\Model` and `Starch\Controller`. Create two files, both called `Event.php`, one in `app/classes/Controller` and one in `app/classes/Model`.
 
@@ -64,18 +66,20 @@ All post types require a matching `Starch\Model` and `Starch\Controller`. Create
 
 Models let you easily interact with posts and add extra fields. Post type models should always inherit from `Starch\Core\PostType` and at a minimum have a `public static $type` property.
 
-    <?php
+```php
+<?php
 
-    // Models are declared in the Starch\Model namespace
-    namespace Starch\Model;
-    use Starch\Core\PostType;
+// Models are declared in the Starch\Model namespace
+namespace Starch\Model;
+use Starch\Core\PostType;
 
-    // All post type models must inherit from Starch\Core\PostType
-    class Event extends PostType
-    {
-        // For WordPress's internal post type reference
-        public static $type = 'events';
-    }
+// All post type models must inherit from Starch\Core\PostType
+class Event extends PostType
+{
+    // For WordPress's internal post type reference
+    public static $type = 'events';
+}
+```
 
 You can also customise the display name, admin fields, and much more in the model class. See the Model documentation for more.
 
@@ -85,45 +89,47 @@ Your Controller is where requests will be routed when someone tries to view your
 
 A basic Event controller would look like the following:
 
-    <?php
+```php
+<?php
 
-    // Controllers are declared in the Starch\Controller namespace
-    namespace Starch\Controller;
-    use Starch\Model;
-    use Starch\Core\View;
-    use Starch\Core\Content;
+// Controllers are declared in the Starch\Controller namespace
+namespace Starch\Controller;
+use Starch\Model;
+use Starch\Core\View;
+use Starch\Core\Content;
 
-    // Template can be found in controllers/template.php
-    class Event extends Template
+// Template can be found in controllers/template.php
+class Event extends Template
+{
+    // Called on a single event page, e.g. /events/an-event
+    public function action_single()
     {
-        // Called on a single event page, e.g. /events/an-event
-        public function action_single()
-        {
-            // $this->content is the main area on the template (see views/template.php)
-            // Render the post using the views/post/single.php template
-            // We pass it $this->post, which is a reference to the post
-            $this->content->set(View::render('post/single', array('post' => $this->post)));
-        }
-
-        // Call on the events archive page, e.g. /events/
-        public function action_archive()
-        {
-            // Get all the events
-            $events = Model\Event::all();
-            // Set up a content container
-            $content = new Content();
-
-            // Append each event to the content container
-            foreach ($events as $event) {
-                // Render each $event using the views/post/archive-part.php template
-                $content->append(View::render('post/archive-part', array('post' => $event)));
-            }
-
-            // Set the content
-            $this->content->set($content);
-        }
+        // $this->content is the main area on the template (see views/template.php)
+        // Render the post using the views/post/single.php template
+        // We pass it $this->post, which is a reference to the post
+        $this->content->set(View::render('post/single', array('post' => $this->post)));
     }
+
+    // Call on the events archive page, e.g. /events/
+    public function action_archive()
+    {
+        // Get all the events
+        $events = Model\Event::all();
+        // Set up a content container
+        $content = new Content();
+
+        // Append each event to the content container
+        foreach ($events as $event) {
+            // Render each $event using the views/post/archive-part.php template
+            $content->append(View::render('post/archive-part', array('post' => $event)));
+        }
+
+        // Set the content
+        $this->content->set($content);
+    }
+}
+```
 
 ## Acknowledgements
 
-This project owes a lot to FuelPHP. None of the code is taken directly from Fuel, but it certainly inspired many of the design decisions.
+This project owes a lot to FuelPHP. None of the code is taken directly from Fuel, but it certainly inspired many of the design decisions. Thanks also to Benjamin Reid (@nouveller) for feedback on earlier versions of Starch.
