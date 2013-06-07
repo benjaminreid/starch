@@ -2,5 +2,5 @@
 
 return array(
     'logout' => array('Main', 'logout'),
-    'api' => array('API', 'main')
+    'api' => array('API', 'main', 1)
 );
