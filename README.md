@@ -2,11 +2,17 @@
 
 Starch is an empty WordPress theme with an MVC style underpinning. Using it you can rapidly develop maintainable WordPress sites of high complexity.
 
+- **Routing**: Starch handles routing for you, sending requests to the appropriate controller
+- **Models**: Starch lets you easily interact with posts and custom post types using an ORM style system
+- **Custom Post Types**: Set up and interact with complex custom post types in a few minutes
+- **Templates**: Starch makes using (and reusing) templates easy - you can even use templating engines like Smarty or Mustache
+- **Composer Support**: Starch supports the [Composer](http://getcomposer.org) dependency management system
+
 ## Why?
 
 WordPress provides an excellent content management system with a great user experience. Furthermore it is widely used, meaning that many people already have experience using it. This combination makes it a great choice for your users.
 
-However, WordPress was originally built long ago, back when PHP had poor support for classes and objects and a procedural style was more common. If you're used to a modern MVC PHP framework, like FuelPHP, this can feel like a bit of a step backwards. Starch provides some wrapper classes and a simple directory structure so that you can create WordPress sites using an object oriented approach.
+However, WordPress was originally built long ago, back when PHP had poor support for classes and objects and a procedural style was more common. If you're used to a modern MVC PHP framework, like FuelPHP, this can feel like a bit of a step backwards. Starch provides some wrapper classes and a simple directory structure so that you can create WordPress sites using a fully object oriented approach.
 
 Starch is entirely built on top of WordPress's public API and does not use any hacks, so it should remain compatible as much as any other theme.
 
