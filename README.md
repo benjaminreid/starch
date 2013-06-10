@@ -1,4 +1,5 @@
 # Starch (for WordPress)
+**v1.0.1**
 
 Starch is an empty WordPress theme with an MVC style underpinning. Using it you can rapidly develop maintainable WordPress sites of high complexity.
 
@@ -135,6 +136,14 @@ class Event extends Template
     }
 }
 ```
+
+## Version History
+
+### v1.0.1
+
+- Added support for [whoops!](http://filp.github.io/whoops/) (to setup run `composer install` in the `app` directory)
+- Fixed a bug in Router::error
+- Fixed a bug in PostType::create
 
 ## Acknowledgements
 
