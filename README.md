@@ -8,6 +8,7 @@ Starch is an empty WordPress theme with an MVC style underpinning. Using it you 
 - **Custom Post Types**: Set up and interact with complex custom post types in a few minutes
 - **Templates**: Starch makes using (and reusing) templates easy - you can even use templating engines like Smarty or Mustache
 - **Composer Support**: Starch supports the [Composer](http://getcomposer.org) dependency management system
+- **whoops! Support**: Built in support for [whoops!](http://filp.github.io/whoops/) for easy debugging in development mode
 
 ## Why?
 
