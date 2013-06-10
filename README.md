@@ -1,5 +1,5 @@
 # Starch (for WordPress)
-**v1.0.1**
+**v1.0.2**
 
 Starch is an empty WordPress theme with an MVC style underpinning. Using it you can rapidly develop maintainable WordPress sites of high complexity.
 
@@ -139,6 +139,10 @@ class Event extends Template
 ```
 
 ## Version History
+
+### v1.0.2
+- Changed default log location from `app/log.txt` to `app/starch.log`
+- Added `.gitignore` file
 
 ### v1.0.1
 
