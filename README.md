@@ -142,6 +142,7 @@ class Event extends Template
 
 ### v1.0.3
 - Added `exists()` method to `PostType`
+- Changed `$post->slug` to `$post->name`
 
 ### v1.0.2
 - Changed default log location from `app/log.txt` to `app/starch.log`
