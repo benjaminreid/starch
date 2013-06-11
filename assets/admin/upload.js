@@ -6,6 +6,11 @@ jQuery(function ($) {
         hijacked = 0,
         items = {},
 
+        parse = function (val) {
+            var match = val.match(/Attachment\(([0-9]+)\)/);
+            return match[1] ? match[1] : null;
+        },
+
         refresh = function (id) {
             var item = items[id];
 
@@ -34,7 +39,7 @@ jQuery(function ($) {
             if (!item) { return; }
 
             item.title.text(attach.title);
-            item.input.val(attach.id);
+            item.input.val('Attachment(' + attach.id + ')');
 
             if (attach.sizes && attach.sizes.thumbnail && attach.sizes.thumbnail.url && item.showThumb) {
                 item.thumb.attr('src', attach.sizes.thumbnail.url);
