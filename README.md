@@ -50,6 +50,10 @@ To install go to your `wp-content/themes` directory and use `git clone https://g
 
 Download the latest version from [https://github.com/smallhadroncollider/starch/archive/master.zip](https://github.com/smallhadroncollider/starch/archive/master.zip) and extract into a directory in your `wp-content/themes/` directory. You'll also need to download [https://github.com/smallhadroncollider/starch-core/archive/master.zip](https://github.com/smallhadroncollider/starch-core/archive/master.zip) and extract the contents into `theme-name/app/classes/Core`.
 
+#### whoops!
+
+If you would like [whoops!](http://filp.github.io/whoops/) error handling (highly recommended) then make sure you have [Composer](http://getcomposer.org) installed and then run `composer install` in the `app` directory of the theme.
+
 ### Customising the Theme
 
 You'll probably want to edit the `style.css` file to change the name, creator, and description of the theme. You will also want to swap the `screenshot.png` file to something appropriate. Finally, you'll probably want to go to `assets/admin/admin.css` and edit the `body.login` styles to remove the Starch theming.
