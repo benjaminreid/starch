@@ -43,6 +43,8 @@ jQuery(function ($) {
 
             if (attach.sizes && attach.sizes.thumbnail && attach.sizes.thumbnail.url && item.showThumb) {
                 item.thumb.attr('src', attach.sizes.thumbnail.url);
+            } else if (attach.icon) {
+                item.thumb.attr('src', attach.icon);
             } else {
                 item.thumb.removeAttr('src');
             }
